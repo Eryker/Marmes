@@ -5,6 +5,19 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: SafeArea(
+            child: Column(
+          children: [
+            Row(
+              children: [
+                Text("Marmes".toUpperCase()),
+              ],
+            ),
+          ],
+        )),
+      ),
+    );
   }
 }
