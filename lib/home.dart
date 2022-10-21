@@ -26,21 +26,7 @@ class HomeWidget extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  Container(
-                    width: 40,
-                    height: 70,
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 2, color: Colors.white),
-                        borderRadius: BorderRadius.circular(50)),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.search,
-                        size: 20,
-                      ),
-                      color: Colors.white,
-                    ),
-                  )
+                  const SearchBar()
                 ],
               ),
             )
@@ -59,8 +45,20 @@ class SearchBar extends StatefulWidget {
 }
 
 class _SearchBarState extends State<SearchBar> {
+  TextEditingController textController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: AnimSearchBar(
+        textController: textController,
+        onSuffixTap: () {
+          setState(() {
+            textController.clear();
+          });
+        },
+        width: 200,
+      ),
+    );
   }
 }
