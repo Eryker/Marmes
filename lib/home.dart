@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:anim_search_bar/anim_search_bar.dart';
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({super.key});
@@ -47,5 +48,19 @@ class HomeWidget extends StatelessWidget {
         )),
       ),
     );
+  }
+}
+
+class SearchBar extends StatefulWidget {
+  const SearchBar({super.key});
+
+  @override
+  State<SearchBar> createState() => _SearchBarState();
+}
+
+class _SearchBarState extends State<SearchBar> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
