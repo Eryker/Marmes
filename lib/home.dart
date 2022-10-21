@@ -3,7 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:anim_search_bar/anim_search_bar.dart';
 
 class HomeWidget extends StatelessWidget {
-  const HomeWidget({super.key});
+  HomeWidget({super.key});
+
+  final List<String> urlImages = [
+    'assets/nft.png',
+    'assets/nft2.png',
+    'assets/nft3.png'
+  ];
 
   @override
   Widget build(BuildContext context) {
