@@ -51,13 +51,17 @@ class _SearchBarState extends State<SearchBar> {
   Widget build(BuildContext context) {
     return Container(
       child: AnimSearchBar(
+        width: 200,
+        helpText: 'Recherche',
+        closeSearchOnSuffixTap: true,
         textController: textController,
         onSuffixTap: () {
-          setState(() {
-            textController.clear();
-          });
+          setState(
+            () {
+              textController.clear();
+            },
+          );
         },
-        width: 200,
       ),
     );
   }
