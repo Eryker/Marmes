@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:anim_search_bar/anim_search_bar.dart';
@@ -6,9 +7,9 @@ class HomeWidget extends StatelessWidget {
   HomeWidget({super.key});
 
   final List<String> urlImages = [
-    'assets/nft.png',
-    'assets/nft2.png',
-    'assets/nft3.png'
+    'assets/image/img-1.jpeg',
+    'assets/image/img-2.jpeg',
+    'assets/image/img-3.jpeg',
   ];
 
   @override
@@ -17,30 +18,47 @@ class HomeWidget extends StatelessWidget {
       backgroundColor: const Color(0xff040210),
       body: SingleChildScrollView(
         child: SafeArea(
-            child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.fromLTRB(17, 10, 17, 0),
-              child: Row(
-                children: [
-                  Text(
-                    "Marmes".toUpperCase(),
-                    style: GoogleFonts.alfaSlabOne(
-                      color: Colors.white,
-                      fontSize: 36,
-                      fontWeight: FontWeight.w400,
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(17, 10, 17, 0),
+                child: Row(
+                  children: [
+                    Text(
+                      "Marmes".toUpperCase(),
+                      style: GoogleFonts.alfaSlabOne(
+                        color: Colors.white,
+                        fontSize: 36,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                  ),
-                  const Spacer(),
-                  const SearchBar()
-                ],
+                    const Spacer(),
+                    const SearchBar()
+                  ],
+                ),
               ),
-            )
-          ],
-        )),
+              CarouselSlider.builder(
+                itemCount: urlImages.length,
+                itemBuilder: (context, index, realIndex) {
+                  final urlImage = urlImages[index];
+                  return builImages(urlImage, index);
+                },
+                options: CarouselOptions(
+                    height: 230, autoPlay: true, viewportFraction: 1),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
+
+  Widget builImages(String urlImage, int index) => Container(
+        child: Image.asset(
+          urlImage,
+          fit: BoxFit.cover,
+        ),
+      );
 }
 
 class SearchBar extends StatefulWidget {
